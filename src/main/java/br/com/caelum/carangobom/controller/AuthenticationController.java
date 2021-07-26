@@ -23,11 +23,15 @@ import br.com.caelum.carangobom.form.LoginForm;
 @Profile(value = {"prod", "test"})
 public class AuthenticationController {
 	
-	@Autowired
 	private AuthenticationManager authManager;
 	
-	@Autowired
 	private TokenService tokenService;
+	
+	@Autowired
+	public AuthenticationController(AuthenticationManager authenticationManager, TokenService tokenService) {
+		this.authManager = authenticationManager;
+		this.tokenService = tokenService;
+	}
 
 	@PostMapping
 	public ResponseEntity<TokenDto> authenticate(@RequestBody @Valid LoginForm form) {
