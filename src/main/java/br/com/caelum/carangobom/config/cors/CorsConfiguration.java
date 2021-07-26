@@ -10,8 +10,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
 	@Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-//        	TO-DO: Modificar para frontend em produção
-            .allowedOrigins("*")
+            .allowedOrigins("https://carangobom-g5.herokuapp.com")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 	
